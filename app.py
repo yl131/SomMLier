@@ -27,7 +27,7 @@ dill._dill._reverse_typemap['ClassType'] = type
 
 model = dill.load(open('lib/models/wine_estimator.dill','rb'))
 
-@app.route('/home', methods=['POST'])
+@app.route('/', methods=['POST'])
 def home():
     return render_template('home.html')
 
