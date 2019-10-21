@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<!--
+	Projection by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Upload - Projection by TEMPLATED</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../static/css/main.css" />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="index.html" class="logo"><strong>Projection</strong> by TEMPLATED</a>
+					<nav id="nav">
+                        <a href="home.html">About</a>
+                        <a href="label.html">Got my label</a>
+                        <a href="upload.html">Need to take a photo</a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+			</header>
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+                        
+						<h2>Upload a photo of your wine label</h2>
+                        <p>Text extraction isn't perfect! If your result is far off, try taking a clearer photo or adjusting the lighting.</p>
+					</header>
+
+					<!-- Intro -->
+
+								<!-- Form -->
+                    
+									<form id='input_upload' method="post" action="prediction">
+										<div class="col uniform">
+
+                                        {% if msg %}
+                                        <h1>{{ msg }}</h1>
+                                        {% endif %}
+
+                                        <h1>Upload new File</h1>
+
+                                        <form method=post enctype=multipart/form-data>
+                                          <p><input type=file name=file>
+                                             <input type=submit value=Upload>
+                                        </form>
+
+                                        <h1>Result:</h1>
+                                        {% if img_src %}
+                                          <img src="{{ img_src }}">
+                                        {% endif %}
+
+                                        {% if extracted_text %}
+                                          <p> The extracted text from the image above is: <b> {{ extracted_text }} </b></p>
+
+                                        {% else %}
+                                          The extracted text will be displayed here
+                                        {% endif %}
+
+                                        </div>
+									</form>
+
+									<h4>Did you know?</h4>
+									<p><span class="image left"><img src="images/vase.jpg" alt="" /></span>The oldest winery that we know of is Armenian, dated to 4100 BCE.</p>
+									<p><span class="image right"><img src="images/tj.jpg" alt="" /></span>Thomas Jefferson may be responsible for the California wine boom. After being sent to France, Jefferson brought vine cuttings back to the United States.</p>
+									<p><span class="image left"><img src="images/wineglass.jpg" alt="" /></span>Experts only fill their wine glasses a third of the way. This leaves plenty of room in the glass for aromas to develop.</p>
+
+                                    <p>For more great wine facts and tips visit: <a href="https://vincarta.com/blog/100-essential-wine-facts" title="vincarta">vincarta</a></p>
+						</div>
+
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="copyright">
+						&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a> Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
+					</div>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="../static/js/jquery.min.js"></script>
+			<script src="../static/js/skel.min.js"></script>
+			<script src="../static/js/util.js"></script>
+			<script src="../static/js/main.js"></script>
+
+	</body>
+</html>

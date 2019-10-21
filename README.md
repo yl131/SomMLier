@@ -1,2 +1,2 @@
-# SomMLier
-TDI Capstone
+# README 
+

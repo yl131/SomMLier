@@ -1,0 +1,10 @@
+pandas
+dill
+flask
+jinja2
+pip
+simplejson
+scipy
+numpy
+pillow
+scikit-learn
