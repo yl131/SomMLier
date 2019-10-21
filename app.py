@@ -28,7 +28,7 @@ dill._dill._reverse_typemap['ClassType'] = type
 model = dill.load(open('lib/models/wine_estimator.dill','rb'))
 
 @app.route('/', methods=['GET','POST'])
-def label():
+def index():
     return render_template('label.html')
 
 @app.route('/prediction', methods=['POST'])
