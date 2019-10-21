@@ -16,11 +16,11 @@
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="index.html" class="logo"><strong>Projection</strong> by TEMPLATED</a>
+					<a href="home.html" class="logo"><strong>Projection</strong> by TEMPLATED</a>
 					<nav id="nav">
-						<a href="index.html">Home</a>
-						<a href="generic.html">Generic</a>
-						<a href="elements.html">Elements</a>
+                        <a href="home.html">About</a>
+                        <a href="label.html">Got my label</a>
+                        <a href="upload.html">Need to take a photo</a>
 					</nav>
 					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 				</div>
@@ -30,17 +30,15 @@
 
     <div class="container">
       <div class="row">
-        <div class="text-center" >
-          {{ image }}
-        <div class="text-center" >
+        <div class="text-center" font-size="180%" >
           {{ prediction }}
-          <h4>
-            <form id='inputform2' method='post' action='/' >
-              <p>
-                <input type='submit' value='Look up another wine!' />
-              </p>
-            </form>
-          </h4>
+
+        <form id='submit_wine' method='post' action='/' >
+          <p>
+            <input type='submit' value='Look up another wine!' />
+          </p>
+        </form>
+
         </div>
       </div>
     </div>
