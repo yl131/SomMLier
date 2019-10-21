@@ -45,9 +45,7 @@ def prediction():
     query_df = pd.DataFrame.from_dict(query, orient = 'columns')
     prediction = model.predict(query_df).item()
     
-    image = make_plot(query)
-    
-    return render_template('prediction.html', prediction = prediction, image = image)
+    return render_template('prediction.html', prediction = prediction)
 
 
 if __name__ == '__main__':
