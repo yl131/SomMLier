@@ -30,30 +30,16 @@ dill._dill._reverse_typemap['ClassType'] = type
 
 model = dill.load(open('lib/models/wine_estimator.dill','rb'))
 
-@app.route('/', methods=['GET','POST'])
-def index(page=None):
-    if page:
-        return render_template('%s.html'%(page))
-    else:
-        return render_template('home.html')
+@app.route('/home', methods=['GET','POST'])
+def home():
+    return render_template('home.html')
 
-@app.route('/prediction', methods=['POST'])
-def prediction():
-    
-    query = {}
-    query['description'] = [request.form['description']]
-    query['price'] = [request.form['price']]
-    query['province'] = [request.form['province']]
-    query['variety'] = [request.form['variety']]
-    query['winery'] = [request.form['winery']]
-    
-    query_df = pd.DataFrame.from_dict(query, orient = 'columns')
-    prediction = model.predict(query_df).item()
-    
-    return render_template('prediction.html', prediction = prediction)
+@app.route('/label', methods=['GET','POST'])
+def label():
+    return render_template('home.html')    
 
 @app.route('/upload', methods=['GET', 'POST'])
-def upload_page():
+def upload():
     if request.method == 'POST':
         if 'file' not in request.files:
             return render_template('upload.html', msg='No file selected')
@@ -70,6 +56,21 @@ def upload_page():
         
     elif request.method == 'GET':
         return render_template('upload.html')
+    
+@app.route('/prediction', methods=['POST'])
+def prediction():
+    
+    query = {}
+    query['description'] = [request.form['description']]
+    query['price'] = [request.form['price']]
+    query['province'] = [request.form['province']]
+    query['variety'] = [request.form['variety']]
+    query['winery'] = [request.form['winery']]
+    
+    query_df = pd.DataFrame.from_dict(query, orient = 'columns')
+    prediction = model.predict(query_df).item()
+    
+    return render_template('prediction.html', prediction = prediction)
 
 if __name__ == '__main__':
     app.run()
