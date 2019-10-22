@@ -5,6 +5,7 @@ from flask import Flask, render_template, request
 import numpy as np
 import dill
 from sklearn.feature_extraction.text import TfidfVectorizer
+from ocr_core import ocr_core
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
@@ -20,6 +21,8 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.datasets import make_regression
 from sklearn.linear_model import Ridge
 from model import ColumnSelectTransformer, CorpusTransformer, DictEncoder, EstimatorTransformer
+
+UPLOAD_FOLDER = 'static/uploads/'
 
 app = Flask(__name__)
 
@@ -49,6 +52,24 @@ def prediction():
     
     return render_template('prediction.html', prediction = prediction)
 
+@app.route('/upload', methods=['GET', 'POST'])
+def upload_page():
+    if request.method == 'POST':
+        if 'file' not in request.files:
+            return render_template('upload.html', msg='No file selected')
+        file = request.files['file']
+        if file.filename == '':
+            return render_template('upload.html', msg='No file selected')
+
+        if file:
+            extracted_text = ocr_core(file)
+            return render_template('upload.html',
+                                   msg='Successfully processed',
+                                   extracted_text=extracted_text,
+                                   img_src=UPLOAD_FOLDER + file.filename)
+        
+    elif request.method == 'GET':
+        return render_template('upload.html')
 
 if __name__ == '__main__':
     app.run()
