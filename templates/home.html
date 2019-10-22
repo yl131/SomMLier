@@ -6,7 +6,7 @@
 -->
 <html>
     <head>
-        <title>SomMLier by TEMPLATED</title>
+        <title>SomMLier</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="../static/css/main.css" />
@@ -18,9 +18,9 @@
                 <div class="inner">
                     <a href="home.html" class="logo"><strong>SomMLier</strong> by TEMPLATED</a>
                     <nav id="nav">
-                        <a href="home.html">About</a>
-                        <a href="label.html">Got my label</a>
-                        <a href="upload.html">Need to take a photo</a>
+                        <a href="{{ url_for('home') }}">About</a>
+                        <a href="{{ url_for('label', page='label') }}">Got my label</a>
+                        <a href="{{ url_for('upload', page='upload') }}">Need to take a photo</a>
                     </nav>
                     <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
                 </div>
@@ -58,7 +58,7 @@
                     </div>
 
                     <footer>
-                        <a href="#" class="button">Get Started</a>
+                        <a href="{{ url_for('label', page='label') }}" class="button">Get Started</a>
                     </footer>
                 </div>
             </section>
