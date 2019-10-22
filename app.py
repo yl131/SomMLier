@@ -22,7 +22,7 @@ from sklearn.datasets import make_regression
 from sklearn.linear_model import Ridge
 from model import ColumnSelectTransformer, CorpusTransformer, DictEncoder, EstimatorTransformer
 
-UPLOAD_FOLDER = 'static/uploads/'
+UPLOAD_FOLDER = '/static/uploads/'
 
 app = Flask(__name__)
 
