@@ -30,7 +30,7 @@ model = dill.load(open('lib/models/wine_estimator.dill','rb'))
 @app.route('/', methods=['GET','POST'])
 def index(page=None):
     if page:
-        return render_template('%s.html' % page)
+        return render_template('%s.html'%(page))
     else:
         return render_template('home.html')
 
