@@ -22,8 +22,6 @@ from sklearn.datasets import make_regression
 from sklearn.linear_model import Ridge
 from model import ColumnSelectTransformer, CorpusTransformer, DictEncoder, EstimatorTransformer
 
-UPLOAD_FOLDER = 'static/uploads/'
-
 app = Flask(__name__)
 
 dill._dill._reverse_typemap['ClassType'] = type
@@ -51,7 +49,7 @@ def upload():
             return render_template('upload.html',
                                    msg='Successfully processed',
                                    extracted_text=extracted_text,
-                                   img_src=UPLOAD_FOLDER + file.filename)
+                                   img_src='static/uploads/' + file.filename)
         
     elif request.method == 'GET':
         return render_template('upload.html')
