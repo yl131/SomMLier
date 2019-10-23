@@ -21,6 +21,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.datasets import make_regression
 from sklearn.linear_model import Ridge
 from model import ColumnSelectTransformer, CorpusTransformer, DictEncoder, EstimatorTransformer
+from PIL import Image
 
 app = Flask(__name__)
 
@@ -46,10 +47,13 @@ def upload():
             return render_template('upload.html', msg='No file selected')
         if file:
             extracted_text = ocr_core(file)
+
+            image = Image.open(file)
+
             return render_template('upload.html',
                                    msg='Successfully processed',
                                    extracted_text=extracted_text,
-                                   img_src='../static/uploads/' + file.filename)
+                                   img_src=image)
         
     elif request.method == 'GET':
         return render_template('upload.html')
