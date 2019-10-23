@@ -22,7 +22,7 @@ from sklearn.datasets import make_regression
 from sklearn.linear_model import Ridge
 from model import ColumnSelectTransformer, CorpusTransformer, DictEncoder, EstimatorTransformer
 
-UPLOAD_FOLDER = '/static/uploads/'
+UPLOAD_FOLDER = './static/uploads/'
 
 app = Flask(__name__)
 
@@ -46,7 +46,6 @@ def upload():
         file = request.files['file']
         if file.filename == '':
             return render_template('upload.html', msg='No file selected')
-
         if file:
             extracted_text = ocr_core(file)
             return render_template('upload.html',
