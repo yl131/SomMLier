@@ -22,6 +22,8 @@ from sklearn.datasets import make_regression
 from sklearn.linear_model import Ridge
 from model import ColumnSelectTransformer, CorpusTransformer, DictEncoder, EstimatorTransformer
 from PIL import Image
+import io
+from base64 import b64encode
 
 app = Flask(__name__)
 
@@ -48,12 +50,32 @@ def upload():
         if file:
             extracted_text = ocr_core(file)
 
-            image = Image.open(file)
+            image_data = Image.open(file, 'r')
+            img = np.array(image_data.getdata())
+            
+            file_object = io.BytesIO()
+            pic = Image.fromarray(img.astype('uint8'))
+            
+            pic.save(file_object, 'PNG')
+            #with open(file.filename, "rb") as i:
+            #    encoded = b64encode(i.read())
+    # create file-object in memory
+            #file_object = io.BytesIO()
 
+            #pic = Image.fromarray(img.astype('uint8'))
+            
+            #pic.save(file_object, 'PNG')
+    # move to beginning of file so `send_file()` it will read from start    
+            #file_object.seek(0)
+        
+            encoded = b64encode(file_object.read())
+            mime = "image/jpeg"
+            uri = "data:%s;base64;+%s" % (mime, encoded)
+            
             return render_template('upload.html',
                                    msg='Successfully processed',
                                    extracted_text=extracted_text,
-                                   img_src=image)
+                                   img_src=uri)
         
     elif request.method == 'GET':
         return render_template('upload.html')
