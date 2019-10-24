@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Upload</title>
+		<title>Upload - SomMLier by TEMPLATED</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="../static/css/main.css" />
@@ -14,8 +14,8 @@
 	<body class="subpage">
 
 		<!-- Header -->
-			<header id="header">
-				<div class="inner">
+            <header id="header">
+                <div class="inner">
 					<a href="{{ url_for('home') }}" class="logo"><strong>SomMLier</strong> by TEMPLATED</a>
 					<nav id="nav">
                         <a href="{{ url_for('home') }}">About</a>
@@ -40,37 +40,39 @@
 
 								<!-- Form -->
                     
-                        <div class="col uniform">
+									<form id='input_upload' method="post" action="prediction">
+										<div class="col uniform">
 
-                        {% if msg %}
-                        <h1>{{ msg }}</h1>
-                        {% endif %}
+                                        {% if msg %}
+                                        <h1>{{ msg }}</h1>
+                                        {% endif %}
 
-                        <h1>Upload new File</h1>
+                                        <h1>Upload new File</h1>
 
-                        <form method=post enctype=multipart/form-data>
-                          <p><input type=file name=file>
-                             <input type=submit value=Upload>
-                        </form>
+                                        <form method=post enctype=multipart/form-data>
+                                          <p><input type=file name=file>
+                                             <input type=submit value=Upload>
+                                        </form>
 
-                        <h1>Result:</h1>
-                        {% if img_src %}
-                          <img src="{{ img_src }}">
-                        {% endif %}
+                                        <h1>Result:</h1>
+                                        {% if img_src %}
+                                          <img src="{{ img_src }}">
+                                        {% endif %}
 
-                        {% if extracted_text %}
-                          <p> The extracted text from the image above is: <b> {{ extracted_text }} </b></p>
+                                        {% if extracted_text %}
+                                          <p> The extracted text from the image above is: <b> {{ extracted_text }} </b></p>
 
-                        {% else %}
-                          The extracted text will be displayed here
-                        {% endif %}
+                                        {% else %}
+                                          The extracted text will be displayed here
+                                        {% endif %}
 
-                        </div>
+                                        </div>
+									</form>
 
 									<h4>Did you know?</h4>
-									<p><span class="image left"><img src="../static/images/vase.jpg" alt="" /></span>The oldest winery that we know of is Armenian, dated to 4100 BCE.</p>
-									<p><span class="image right"><img src="../static/images/tj.jpg" alt="" /></span>Thomas Jefferson may be responsible for the California wine boom. After being sent to France, Jefferson brought vine cuttings back to the United States.</p>
-									<p><span class="image left"><img src="../static/images/wineglass.jpg" alt="" /></span>Experts only fill their wine glasses a third of the way. This leaves plenty of room in the glass for aromas to develop.</p>
+									<p><span class="image left"><img src="images/vase.jpg" alt="" /></span>The oldest winery that we know of is Armenian, dated to 4100 BCE.</p>
+									<p><span class="image right"><img src="images/tj.jpg" alt="" /></span>Thomas Jefferson may be responsible for the California wine boom. After being sent to France, Jefferson brought vine cuttings back to the United States.</p>
+									<p><span class="image left"><img src="images/wineglass.jpg" alt="" /></span>Experts only fill their wine glasses a third of the way. This leaves plenty of room in the glass for aromas to develop.</p>
 
                                     <p>For more great wine facts and tips visit: <a href="https://vincarta.com/blog/100-essential-wine-facts" title="vincarta">vincarta</a></p>
 						</div>
