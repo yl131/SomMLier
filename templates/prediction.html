@@ -26,22 +26,24 @@
 					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 				</div>
 			</header>
+            <section id="banner">
+                <div class="inner">
 
-		<!-- Three -->
+                    <div class="flex ">
 
-    <div class="container">
-      <div class="row">
-        <div class="text-center" >
-        {{ prediction}}
-        <form id='submit_wine' method='post' action='label' >
-          <p>
-            <input type='submit' value='Look up another wine!' />
-          </p>
-        </form>
+                        <div>
+                            <h1>{{ prediction}}</h1>
+                        </div>
 
-        </div>
-      </div>
-    </div>
+                    </div>
+
+                    <footer>
+                        <a href="{{ url_for('label') }}" class="button">Look up another wine!</a>
+                    </footer>
+                </div>
+            </section>
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
