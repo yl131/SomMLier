@@ -48,14 +48,17 @@ def upload():
     if request.method == 'POST':
         if 'file' not in request.files:
             return render_template('upload.html', msg='No file selected')
+        
         file = request.files['file']
+        
         if file.filename == '':
             return render_template('upload.html', msg='No file selected')
         if file:
-            extracted_text = ocr_core(file)
-            return render_template('upload.html',
-                                   msg='Successfully processed',
-                                   extracted_text=extracted_text)
+            return render_template('data.html')
+            #extracted_text = ocr_core(file)
+            #return render_template('upload.html',
+                                   #msg='Successfully processed')
+                                   #extracted_text=extracted_text)
     elif request.method == 'GET':
         return render_template('upload.html')
     
