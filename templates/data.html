@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<!--
+	Projection by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Data</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../static/css/main.css" />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="{{ url_for('home') }}" class="logo"><strong>SomMLier</strong> by TEMPLATED</a>
+					<nav id="nav">
+                        <a href="{{ url_for('home') }}">About</a>
+                        <a href="{{ url_for('data') }}">Data</a>
+                        <a href="{{ url_for('label') }}">Got my label</a>
+                        <a href="{{ url_for('upload') }}">Need to take a photo</a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+			</header>
+
+		<!-- Three -->
+			<section id="three" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h2>Looking at the data!</h2>
+
+					</header>
+					<div class="image square center">
+						<img src="../static/images/points_price.png"/>
+					</div>
+					<p>The distribution of points given by expert wine reviewers by prices (USD) for all 130k bottles. We can already see a couple of wines standing out as being very well reviewed and priced much higher than other bottles.</p>
+
+					<div class="image square right">
+						<img src="../static/images/bordeaux.png" alt="Pic 02" />
+					</div>
+					<p>If we take a closer look at the data, zooming in on specific regions of France for example, we see that bordeaux dominates the region of its namesake.</p>                    
+                    
+					<div class="image square left">
+						<img src="../static/images/champagne.png" alt="Pic 02" />
+					</div>
+					<p>Surprisingly Chardonnay is in fact the most expensive and highest rated wine despite this being the region of Champagne!</p>
+                    
+					<div class="image square left">
+						<img src="../static/images/word_cloud_char.png" alt="Pic 02" />
+					</div>
+					<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem.</p>
+                    
+					<div class="image square left">
+						<img src="../static/images/word_cloud_bor.png" alt="Pic 02" />
+					</div>
+					<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem.</p>                    
+
+					<div class="image square center">
+						<img src="../static/images/schematic.jpg" alt="Pic 02" />
+					</div>
+					<p>SomMLier uses 5 main features in its model.</p>                      
+                    
+					<p>f</p>
+
+								<!-- Preformatted Code -->
+<h3>Coefficient of determination</h3>
+<pre><code>
+wine_estimator.fit(X_train, y_train)
+
+y_pred = wine_estimator.predict(X_test)
+
+r2_score(y_true, y_pred)
+
+</code></pre>
+                    
+<h3>r<sup>2</sup> = 0.86</h3>                    
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+
+					<div class="copyright">
+						&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+					</div>
+
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="../static/js/jquery.min.js"></script>
+			<script src="../static/js/skel.min.js"></script>
+			<script src="../static/js/util.js"></script>
+			<script src="../static/js/main.js"></script>
+
+	</body>
+</html>
