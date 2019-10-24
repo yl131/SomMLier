@@ -56,7 +56,7 @@ def upload():
             return render_template('upload.html',
                                    msg='Successfully processed',
                                    extracted_text=extracted_text,
-                                   img_src='/static/uploads/' + file.filename)
+                                   img_src='../static/uploads/' + file.filename)
     
 @app.route('/prediction', methods=['POST'])
 def prediction():
