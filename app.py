@@ -55,8 +55,7 @@ def upload():
             extracted_text = ocr_core(file)
             return render_template('upload.html',
                                    msg='Successfully processed',
-                                   extracted_text=extracted_text,
-                                   img_src='../static/uploads/' + file.filename)
+                                   extracted_text=extracted_text)
     elif request.method == 'GET':
         return render_template('upload.html')
     
