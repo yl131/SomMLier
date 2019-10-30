@@ -31,13 +31,17 @@ dill._dill._reverse_typemap['ClassType'] = type
 
 model = dill.load(open('lib/models/wine_estimator.dill','rb'))
 
-@app.route('/home')
+@app.route('/')
 def home():
     return render_template('home.html')
 
 @app.route('/data')
 def data():
     return render_template('data.html')    
+
+@app.route('/explore')
+def explore():
+    return render_template('exploration.html')   
 
 @app.route('/label', methods=['GET','POST'])
 def label():
